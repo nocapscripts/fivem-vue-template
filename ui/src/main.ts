@@ -1,21 +1,43 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import '../public/index.css'
+import App from '@/App.vue'
 
+import { router } from '@/router/router'
+import '@/assets/index.css'
 
 import $ from 'jquery'
 
-
+/**
+ * =========================
+ * GLOBAL JQUERY (FiveM UI use)
+ * =========================
+ */
 declare global {
   interface Window {
-    $: typeof $;
-    jQuery: typeof $;
+    $: typeof $
+    jQuery: typeof $
   }
 }
 
+window.$ = $
+window.jQuery = $
 
-window.$ = $;
-window.jQuery = $;
+/**
+ * =========================
+ * CREATE APP
+ * =========================
+ */
+const app = createApp(App)
 
-// Create and mount Vue app
-createApp(App).mount('#template')
+/**
+ * =========================
+ * PLUGINS
+ * =========================
+ */
+app.use(router)
+
+/**
+ * =========================
+ * MOUNT
+ * =========================
+ */
+app.mount('#template')
