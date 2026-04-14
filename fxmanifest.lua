@@ -16,10 +16,10 @@ server_scripts ({
     'server/*.lua'
 })
 
-ui_page ({'web/index.html'})
+ui_page ({'dist/index.html'})
 
 files ({
-    'web/**'
+    'dist/**'
 })
 
 
